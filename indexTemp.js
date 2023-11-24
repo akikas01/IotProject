@@ -80,7 +80,7 @@ setInterval(function () {
 
                 timeout: 80000, // 40s
 
-                values: ['Sensor 1','Temperature',obj.temp]
+                values: ['Sensor 1','temperature',obj.temp]
 
                 
 
