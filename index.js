@@ -5,7 +5,7 @@ var http = require('http').Server(app);
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: '38.242.214.62:3306',
+  host: '38.242.214.62:3990',
   user: 'root', // Replace with your MySQL username
   password: 'cooja123!', // Replace with your MySQL password
   database: 'cooja' // Replace with your database name
