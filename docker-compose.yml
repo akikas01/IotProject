@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7.32
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3990:3306"
+    environment:
+      MYSQL_DATABASE: cooja
+      MYSQL_ROOT_PASSWORD: cooja123!
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - mysql-storage:/var/lib/mysql/
+    networks:
+      - app-network
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - app-network
+volumes:
+  grafana-storage: {}
+  mysql-storage: {}
+
+networks:
+  app-network:
+    driver: bridge
